@@ -9,7 +9,7 @@ function execute() {
 </t:Table>`;
 
 var newColumn = `\n		<t:ColumnattPlaceholder
-			sortProperty="sortPropertyPlaceholder" >textPropertyPlaceholder
+			sortProperty="sortPropertyPlaceholder">textPropertyPlaceholder
 			<t:template>
 				templatePlaceholder
 			</t:template>
@@ -81,7 +81,7 @@ var newColumn = `\n		<t:ColumnattPlaceholder
 		}
 		addColumn = addColumn.replace("sortPropertyPlaceholder", sort)
 		if (text) {
-			text = (`\n			<m:Label text="textPropertyPlaceholder" />
+			text = (`\n			<Label text="textPropertyPlaceholder" />
 `).replace("textPropertyPlaceholder", text)
 		}
 
