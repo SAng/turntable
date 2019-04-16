@@ -22,17 +22,17 @@ var newColumn = `					<t:Column
   
 	var oldTable = document.getElementById("text3").value;
 	var items = oldTable.substring(
-		    str.lastIndexOf("items=") + 6, 
-		    str.indexOf(">")
+		    oldTable.lastIndexOf("items=") + 6, 
+		    oldTable.indexOf(">")
 		).trim();
 	newTable = newTable.replace("rowPlaceholder", items);
 	var columnHeaders = oldTable.substring(
-	    str.lastIndexOf("<columns>") + 9, 
-	    str.indexOf("</columns>")
+	    oldTable.lastIndexOf("<columns>") + 9, 
+	    oldTable.indexOf("</columns>")
 	).trim();
 	var cells = oldTable.substring(
-	    str.lastIndexOf("<cells>") + 7, 
-	    str.indexOf("</cells>")
+	    oldTable.lastIndexOf("<cells>") + 7, 
+	    oldTable.indexOf("</cells>")
 		).trim();
 	var headerArray = columnHeaders.split(`<Column`);
 	headerArray.map(line => line.trim());
@@ -48,13 +48,13 @@ var newColumn = `					<t:Column
 			var row = att[j];
 			if (row.indexOf(`data:text="`)) {
 			    	text = row.substring(
-					    str.lastIndexOf(`data:text="`) + 11, 
-					    str.indexOf(`"`)
+					    row.lastIndexOf(`data:text="`) + 11, 
+					    row.indexOf(`"`)
 					).trim();
 			    } else if (row.indexOf(`data:field="`)) {
 				       	text = row.substring(
-					    str.lastIndexOf(`data:field="`) + 12, 
-					    str.indexOf(`"`)
+					    row.lastIndexOf(`data:field="`) + 12, 
+					    row.indexOf(`"`)
 					).trim();
 			    } else {
 			    	att+=row+'\n';
@@ -64,7 +64,7 @@ var newColumn = `					<t:Column
 		var sort = "";
 		var text = "";
 		
-		fo
+
 		addColumn.replace("sortPropertyPlaceholder", sort)
 		addColumn.replace("textPlaceholder", text)
 		addColumn.replace("attPlaceholder", att)
