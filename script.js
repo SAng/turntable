@@ -46,7 +46,7 @@ var newColumn = `					<t:Column
 		var att = headerArray.split("\n")
 		for (var j=0; j<att.length; att++) {
 			var row = att[j];
-			if (row.indexOf(`data:text="`) {
+			if (row.indexOf(`data:text="`)) {
 			    	text = row.substring(
 					    str.lastIndexOf(`data:text="`) + 11, 
 					    str.indexOf(`"`)
@@ -59,7 +59,7 @@ var newColumn = `					<t:Column
 			    } else {
 			    	att+=row+'\n';
 			    }
-			}
+			
 		}
 		var sort = "";
 		var text = "";
