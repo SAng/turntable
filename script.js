@@ -9,7 +9,7 @@ function execute() {
 </t:Table>`;
 
 var newColumn = `\n		<t:ColumnattPlaceholder
-			sortProperty="sortPropertyPlaceholder" />textPropertyPlaceholder
+			sortProperty="sortPropertyPlaceholder" >textPropertyPlaceholder
 			<t:template>
 				templatePlaceholder
 			</t:template>
