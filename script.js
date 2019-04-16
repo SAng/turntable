@@ -74,10 +74,6 @@ var newColumn = `\n		<t:ColumnattPlaceholder
 			    	addAtt+="\n			" + row.replace(" />", "").trim();
 			    }
 			}
-			
-		
-
-
 		
 		if (!(sort)) {
 			sort = "noLabel" + counter;
@@ -85,20 +81,37 @@ var newColumn = `\n		<t:ColumnattPlaceholder
 		}
 		addColumn = addColumn.replace("sortPropertyPlaceholder", sort)
 		if (text) {
-			text = (`
-						<m:Label text="textPropertyPlaceholder" />
+			text = (`\n			<m:Label text="textPropertyPlaceholder" />
 `).replace("textPropertyPlaceholder", text)
 		}
 
 		addColumn = addColumn.replace("textPropertyPlaceholder", text)
 		addColumn = addColumn.replace("attPlaceholder", addAtt)
-		addColumn = addColumn.replace("templatePlaceholder", `<` + cellArray[i])
+
+		var element ="";
+		var elementArray = cellArray[i].split("\n");
+		elementArray = elementArray.filter(line => (line.trim()))
+		for (var k=0; k<elementArray.length; k++) {
+			var line = elementArray[k].trim();
+			if (k == 0) {
+				element+="<" + line;
+			} else if (k == elementArray.length -1 && !line.includes("/>")) {
+				element+="\n				" + line;
+			} else {
+				element+="\n					" + line;
+			}
+		}
+
+
+
+		addColumn = addColumn.replace("templatePlaceholder",element)
 		columns+=addColumn;
 	}
 		
 	newTable = newTable.replace("noDataPlaceholder", noData)
 	newTable = newTable.replace("columnPlaceholder", columns);
-  
+  newTable = newTable.replace(/(^[ \t]*\n)/gm, "")
+
   document.getElementById("text3").value = newTable
 }
   
