@@ -59,6 +59,7 @@ var newColumn = `					<t:Column
 			    } else {
 			    	att+=row+'\n';
 			    }
+			}
 		}
 		var sort = "";
 		var text = "";
