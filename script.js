@@ -1,5 +1,4 @@
 function execute() {
-  var lines = document.getElementById("text").value.split('\n');
   var newTable = `			<t:Table
 				rows=rowPlaceholder
 				class="tewTable"
@@ -20,7 +19,7 @@ var newColumn = `					<t:Column
 					</t:Column>
 `;
   
-	var oldTable = document.getElementById("text3").value;
+	var oldTable = document.getElementById("text").value;
 	var items = oldTable.substring(
 		    oldTable.lastIndexOf("items=") + 6, 
 		    oldTable.indexOf(">")
@@ -40,11 +39,11 @@ var newColumn = `					<t:Column
 	cellArray.map(line => line.trim());
 	
 	var columns = "";
-	for (var i =0; i<columnHeaders.length; i++) {
+	for (var i =0; i<headerArray.length; i++) {
 		var addColumn = newColumn;
 		
-		var att = headerArray.split("\n")
-		for (var j=0; j<att.length; att++) {
+		var att = headerArray[i].split("/n")
+		for (var j=0; j<att.length; j++) {
 			var row = att[j];
 			if (row.indexOf(`data:text="`)) {
 			    	text = row.substring(
@@ -52,7 +51,7 @@ var newColumn = `					<t:Column
 					    row.indexOf(`"`)
 					).trim();
 			    } else if (row.indexOf(`data:field="`)) {
-				       	text = row.substring(
+				       	sort = row.substring(
 					    row.lastIndexOf(`data:field="`) + 12, 
 					    row.indexOf(`"`)
 					).trim();
