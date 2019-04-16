@@ -51,7 +51,7 @@ var newColumn = `					<t:Column
 					    str.lastIndexOf(`data:text="`) + 11, 
 					    str.indexOf(`"`)
 					).trim();
-			    } else if (row.indexOf(`data:field="`) {
+			    } else if (row.indexOf(`data:field="`)) {
 				       	text = row.substring(
 					    str.lastIndexOf(`data:field="`) + 12, 
 					    str.indexOf(`"`)
