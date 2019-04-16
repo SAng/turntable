@@ -1,5 +1,5 @@
 # turnTable
 
 
-see [here](https://sang.github.io/turnTable/)
+see [here](https://sang.github.io/turntable/)
 
