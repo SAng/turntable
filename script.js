@@ -39,7 +39,7 @@ var newColumn = `					<t:Column
 	cellArray.map(line => line.trim());
 	
 	var columns = "";
-	for (var i =0; i<headerArray.length; i++) {
+	for (var i =1; i<headerArray.length; i++) {
 		var addColumn = newColumn;
 		
 		var att = headerArray[i].split("/n")
