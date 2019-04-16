@@ -1,22 +1,19 @@
 function execute() {
-  var newTable = `			<t:Table
-				rows= rowPlaceholder
-				class= "tewTable"
-				noData= noDataPlaceholder
-				visibleRowCount="20">
-				<t:columns>
-				columnPlaceholder
-				</t:columns>
-			</t:Table>`;
+  var newTable = `<t:Table
+	rows= rowPlaceholder
+	class= "tewTable"
+	noData= noDataPlaceholder
+	visibleRowCount="20">
+	<t:columns>columnPlaceholder
+	</t:columns>
+</t:Table>`;
 
-var newColumn = `					<t:Column
-						attPlaceholder
-						sortProperty="sortPropertyPlaceholder">
-						textPropertyPlaceholder
-						<t:template>
-							templatePlaceholder
-						</t:template>
-					</t:Column>
+var newColumn = `\n		<t:ColumnattPlaceholder
+			sortProperty="sortPropertyPlaceholder" />textPropertyPlaceholder
+			<t:template>
+				templatePlaceholder
+			</t:template>
+		</t:Column>
 `;
   	var noData = "No Data";
 	var oldTable = document.getElementById("text").value;
@@ -50,33 +47,37 @@ var newColumn = `					<t:Column
 	cellArray.map(line => line.trim());
 
 	var columns = "";
-	var addAtt = '';
+
 	var counter = 0;
 	for (var i =1; i<headerArray.length; i++) {
+			var addAtt = '';
 		var addColumn = newColumn;
 
-		var att = headerArray[i].split("/n")
-		console.log("att")
-		console.log(att)
+		var att = headerArray[i].split("\n")
+					var sort = "";
+		var text = "";
 		for (var j=0; j<att.length; j++) {
 			var row = att[j];
+
+
 			if (row.indexOf(`data:text="`) >= 0) {
 			    	text = row.substring(
 					    row.lastIndexOf(`data:text="`) + 11, 
-					    row.indexOf(`"`)
+					    row.lastIndexOf(`"`)
 					).trim();
 			    } else if (row.indexOf(`data:field="`) >=0) {
 				       	sort = row.substring(
 					    row.lastIndexOf(`data:field="`) + 12, 
-					    row.indexOf(`"`)
+					    row.lastIndexOf(`"`)
 					).trim();
-			    } else {
-			    	addAtt+=row+'\n';
+			    } else if (row.trim()){
+			    	addAtt+="\n			" + row.replace(" />", "").trim();
 			    }
+			}
 			
-		}
-		var sort = "";
-		var text = "";
+		
+
+
 		
 		if (!(sort)) {
 			sort = "noLabel" + counter;
@@ -84,8 +85,11 @@ var newColumn = `					<t:Column
 		}
 		addColumn = addColumn.replace("sortPropertyPlaceholder", sort)
 		if (text) {
-			text = (`<m:Label text="textPropertyPlaceholder" />`).replace("textPropertyPlaceholder", text)
+			text = (`
+						<m:Label text="textPropertyPlaceholder" />
+`).replace("textPropertyPlaceholder", text)
 		}
+
 		addColumn = addColumn.replace("textPropertyPlaceholder", text)
 		addColumn = addColumn.replace("attPlaceholder", addAtt)
 		addColumn = addColumn.replace("templatePlaceholder", `<` + cellArray[i])
