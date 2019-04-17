@@ -3,13 +3,18 @@ function execute() {
 	rows= rowPlaceholder
 	class= "tewTable"
 	noData= noDataPlaceholder
-	visibleRowCount="20">
+	minAutoRowCount = "20"
+	visibleRowCountMode="Auto"
+	enableCellFilter="true"
+	enableGrouping = "true"
+	showColumnVisibilityMenu = "true">
 	<t:columns>columnPlaceholder
 	</t:columns>
 </t:Table>`;
 
 var newColumn = `\n		<t:ColumnattPlaceholder
-			sortProperty="sortPropertyPlaceholder">textPropertyPlaceholder
+			sortProperty="sortPropertyPlaceholder"
+			filterProperty="sortPropertyPlaceholder">textPropertyPlaceholder
 			<t:template>
 				templatePlaceholder
 			</t:template>
