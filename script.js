@@ -81,9 +81,11 @@ var newColumn = `\n		<t:ColumnattPlaceholder
 			}
 		
 		if (!(sort)) {
+			addColumn = addColumn.replace(`\n			sortProperty="sortPropertyPlaceholder"\n			filterProperty="sortPropertyPlaceholder"`, "")
 			sort = "noLabel" + counter;
 			counter++;
 		}
+		addColumn = addColumn.replace("sortPropertyPlaceholder", sort)
 		addColumn = addColumn.replace("sortPropertyPlaceholder", sort)
 		if (text) {
 			text = (`\n			<Label text="textPropertyPlaceholder" />
