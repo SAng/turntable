@@ -3,8 +3,7 @@ function execute() {
 	rows= rowPlaceholder
 	class= "tewTable"
 	noData= noDataPlaceholder
-	minAutoRowCount = "20"
-	visibleRowCountMode="Auto"
+	visibleRowCount = "20"
 	enableCellFilter="true"
 	enableGrouping = "true"
 	showColumnVisibilityMenu = "true">
