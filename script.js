@@ -5,8 +5,7 @@ function execute() {
 	noData= noDataPlaceholder
 	visibleRowCount = "20"
 	enableCellFilter="true"
-	enableGrouping = "true"
-	showColumnVisibilityMenu = "true">
+	enableGrouping = "true">
 	<t:columns>columnPlaceholder
 	</t:columns>
 </t:Table>`;
